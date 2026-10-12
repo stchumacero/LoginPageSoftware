@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élan Watches | Alta Relojería & Plataforma E-commerce</title>
+    <meta name="description" content="Élan Watches - Plataforma de comercio electrónico de relojería de alta gama. Proyecto académico de Ingeniería de Software.">
+    <meta name="theme-color" content="#07090e">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>">
+
+    <!-- Google Fonts: Playfair Display, Cinzel & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: {
+                            950: '#06080d',
+                            900: '#0a0d14',
+                            850: '#10141f',
+                            800: '#161c2b',
+                            700: '#21293c',
+                            600: '#2e3850'
+                        },
+                        gold: {
+                            100: '#fcf8e3',
+                            200: '#f7ecc0',
+                            300: '#f0dc97',
+                            400: '#e5c465',
+                            500: '#d4af37', // Oro clásico de lujo
+                            600: '#b89025',
+                            700: '#947019',
+                            800: '#755416'
+                        },
+                        silver: {
+                            100: '#f4f5f7',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            400: '#9ca3af',
+                            500: '#6b7280'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        luxury: ['"Cinzel"', 'serif'],
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px -5px rgba(212, 175, 55, 0.3)',
+                        'gold-glow-lg': '0 0 50px -10px rgba(212, 175, 55, 0.25)',
+                        'card-dark': '0 20px 40px -15px rgba(0, 0, 0, 0.7)'
+                    },
+                    backgroundImage: {
+                        'radial-gold': 'radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 70%)',
+                        'metallic-gradient': 'linear-gradient(135deg, #d4af37 0%, #f7ecc0 50%, #b89025 100%)',
+                        'dark-gradient': 'linear-gradient(180deg, rgba(16,20,31,0.85) 0%, rgba(10,13,20,0.98) 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0d14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #21293c;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+        
+        /* Shimmer effect */
+        .gold-shimmer {
+            background: linear-gradient(90deg, #b89025 0%, #f7ecc0 50%, #b89025 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 5s linear infinite;
+        }
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Ambient background glow */
+        .ambient-radial {
+            background: radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(16, 20, 31, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .glass-panel-hover:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 15px 35px -10px rgba(212, 175, 55, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-obsidian-950 text-slate-200 font-sans antialiased selection:bg-gold-500 selection:text-obsidian-950 min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- Top Announcement Bar (Academic Context) -->
+    <div class="bg-obsidian-900 border-b border-gold-500/20 text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-2 text-slate-400">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-gold-500/10 text-gold-400 border border-gold-500/30">
+                    <i class="fa-solid fa-graduation-cap mr-1"></i> ACADÉMICO
+                </span>
+                <span>Ingeniería de Software &bull; Arquitectura E-commerce de Alta Precisión</span>
+            </div>
+            <div class="flex items-center space-x-4 text-slate-400 text-[11px]">
+                <span class="hidden md:inline"><i class="fa-solid fa-shield-halved text-gold-400 mr-1"></i> Entorno de Prueba & Simulación</span>
+                <span class="text-gold-400 font-medium"><i class="fa-solid fa-clock mr-1"></i> Horario Atelier: 09:00 - 20:00 GMT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 bg-obsidian-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Brand Identity -->
+                <a href="#inicio" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full border border-gold-500/50 flex items-center justify-center bg-obsidian-900 group-hover:border-gold-400 group-hover:shadow-gold-glow transition-all duration-300">
+                        <span class="font-luxury text-gold-400 text-lg font-bold">É</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-luxury tracking-[0.25em] text-white text-lg font-semibold uppercase group-hover:text-gold-400 transition-colors">
+                            ÉLAN
+                        </span>
+                        <span class="text-[9px] font-sans tracking-[0.35em] text-gold-500/80 uppercase -mt-1 font-medium">
+                            WATCHES
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#inicio" class="text-slate-300 hover:text-gold-400 transition-colors py-2 relative group">
+                        Inicio
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#colecciones" class="text-slate-300 hover:text-gold-400 transition-colors py-2 relative group">
+                        Colecciones
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#caracteristicas" class="text-slate-300 hover:text-gold-400 transition-colors py-2 relative group">
+                        Características
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#sistema" class="text-slate-300 hover:text-gold-400 transition-colors py-2 relative group flex items-center">
+                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping mr-2"></span>
+                        Sistema E-commerce
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#nosotros" class="text-slate-300 hover:text-gold-400 transition-colors py-2 relative group">
+                        Sobre Nosotros
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contacto" class="text-slate-300 hover:text-gold-400 transition-colors py-2 relative group">
+                        Contacto
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+
+                <!-- Header Actions (Cart & CTA) -->
+                <div class="hidden sm:flex items-center space-x-5">
+                    <!-- Cart Indicator -->
+                    <button id="cart-toggle-btn" class="relative p-2.5 rounded-full text-slate-300 hover:text-gold-400 hover:bg-obsidian-850 transition-all border border-transparent hover:border-gold-500/20" title="Ver Carrito de Selección">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-1 bg-gold-500 text-obsidian-950 font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-md">
+                            0
+                        </span>
+                    </button>
+
+                    <!-- Primary Action Button -->
+                    <a href="#colecciones" class="relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-semibold tracking-wider uppercase text-obsidian-950 bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-sm shadow-gold-glow hover:shadow-gold-glow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                        <span class="flex items-center space-x-2">
+                            <span>Explorar Catálogo</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <div class="flex items-center space-x-3 lg:hidden">
+                    <button id="mobile-cart-btn" class="p-2 text-slate-300 hover:text-gold-400 relative">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span id="mobile-cart-badge" class="absolute top-0 right-0 bg-gold-500 text-obsidian-950 font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                            0
+                        </span>
+                    </button>
+                    <button id="mobile-menu-btn" aria-label="Abrir menú" class="p-2 text-slate-300 hover:text-gold-400 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-obsidian-900 border-b border-gold-500/20 px-6 py-6 transition-all duration-300">
+            <nav class="flex flex-col space-y-4 text-base font-medium">
+                <a href="#inicio" class="mobile-nav-link text-slate-200 hover:text-gold-400 transition-colors py-1">Inicio</a>
+                <a href="#colecciones" class="mobile-nav-link text-slate-200 hover:text-gold-400 transition-colors py-1">Colecciones</a>
+                <a href="#caracteristicas" class="mobile-nav-link text-slate-200 hover:text-gold-400 transition-colors py-1">Características</a>
+                <a href="#sistema" class="mobile-nav-link text-slate-200 hover:text-gold-400 transition-colors py-1 flex items-center justify-between">
+                    <span>Sistema E-commerce</span>
+                    <span class="text-xs bg-gold-500/20 text-gold-400 px-2 py-0.5 rounded border border-gold-500/30">Arquitectura</span>
+                </a>
+                <a href="#nosotros" class="mobile-nav-link text-slate-200 hover:text-gold-400 transition-colors py-1">Sobre Nosotros</a>
+                <a href="#contacto" class="mobile-nav-link text-slate-200 hover:text-gold-400 transition-colors py-1">Contacto</a>
+                <div class="pt-4 border-t border-slate-800">
+                    <a href="#colecciones" class="mobile-nav-link block text-center py-3 text-xs uppercase tracking-widest font-bold bg-gold-500 text-obsidian-950 rounded shadow-gold-glow">
+                        Explorar Catálogo Completo
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow">
+        
+        <!-- ========================================== -->
+        <!-- 1. HERO SECTION                            -->
+        <!-- ========================================== -->
+        <section id="inicio" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-16 lg:py-24">
+            <!-- Background Radial Glow & Accents -->
+            <div class="absolute inset-0 bg-radial-gold pointer-events-none"></div>
+            <div class="absolute top-1/4 -left-32 w-96 h-96 bg-gold-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-gold-400/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Column: Copywriting & CTAs -->
+                    <div class="lg:col-span-7 text-center lg:text-left space-y-8">
+                        
+                        <!-- Luxury Badge -->
+                        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-obsidian-850/90 border border-gold-500/30 shadow-sm backdrop-blur-sm">
+                            <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+                            <span class="text-xs uppercase tracking-widest font-semibold text-gold-300">
+                                Alta Relojería & Bull; Ingeniería de Software 2026
+                            </span>
+                        </div>
+
+                        <!-- Main Title -->
+                        <h1 class="font-serif text-4xl sm:text-5xl xl:text-6xl text-white font-normal leading-[1.15] tracking-tight">
+                            El tiempo define tu estilo: 
+                            <span class="block mt-2 font-luxury font-bold gold-shimmer">
+                                Descubre la elegancia en cada segundo
+                            </span>
+                        </h1>
+
+                        <!-- Subtitle -->
+                        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                            Plataforma de comercio electrónico de alta fidelidad, especializada en la distribución de piezas de relojería suiza y ediciones de autor. Diseñada con una arquitectura robusta para garantizar trazabilidad, inventario en tiempo real y una experiencia de compra exclusiva.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                            <a href="#colecciones" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-obsidian-950 font-bold text-xs tracking-widest uppercase rounded shadow-gold-glow hover:shadow-gold-glow-lg hover:scale-[1.02] active:scale-[0.99] transition-all duration-300 text-center">
+                                <i class="fa-solid fa-gem mr-2"></i> Ver Colección
+                            </a>
+                            <a href="#sistema" class="w-full sm:w-auto px-8 py-4 bg-obsidian-850 hover:bg-obsidian-800 text-slate-200 border border-gold-500/30 hover:border-gold-400 font-semibold text-xs tracking-widest uppercase rounded transition-all duration-300 text-center flex items-center justify-center space-x-2 group">
+                                <span>Conocer el Sistema</span>
+                                <i class="fa-solid fa-diagram-project text-gold-400 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+
+                        <!-- Quality Guarantees / Micro Stats -->
+                        <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                            <div>
+                                <div class="font-luxury text-xl sm:text-2xl font-bold text-gold-400">100%</div>
+                                <div class="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Autenticidad Suiza</div>
+                            </div>
+                            <div>
+                                <div class="font-luxury text-xl sm:text-2xl font-bold text-gold-400">5 Años</div>
+                                <div class="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Garantía Atelier</div>
+                            </div>
+                            <div>
+                                <div class="font-luxury text-xl sm:text-2xl font-bold text-gold-400">0.03s</div>
+                                <div class="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Sincronización Stock</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Hero Visual Showcase Card -->
+                    <div class="lg:col-span-5 relative flex justify-center items-center">
+                        
+                        <!-- Glowing Backlight -->
+                        <div class="absolute w-72 h-72 sm:w-80 sm:h-80 bg-gold-500/20 rounded-full blur-3xl"></div>
+
+                        <!-- Card Container -->
+                        <div class="relative w-full max-w-md bg-gradient-to-b from-obsidian-850 to-obsidian-900 border border-gold-500/30 rounded-2xl p-6 sm:p-8 shadow-card-dark backdrop-blur-xl group hover:border-gold-400/60 transition-all duration-500">
+                            
+                            <!-- Card Header Badges -->
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-[10px] tracking-widest uppercase font-bold text-gold-400 bg-gold-500/10 border border-gold-500/20 px-3 py-1 rounded-full">
+                                    Pieza Emblema &bull; 2026
+                                </span>
+                                <div class="flex items-center space-x-1 text-gold-400 text-xs">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+
+                            <!-- Showcase Image with Hover Zoom -->
+                            <div class="relative overflow-hidden rounded-xl bg-obsidian-950 aspect-square flex items-center justify-center border border-white/5">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80" 
+                                    alt="Élan Chrono Royal Noir" 
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                                    loading="eager"
+                                >
+                                <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950/80 via-transparent to-transparent pointer-events-none"></div>
+                                
+                                <!-- Floating specs tag -->
+                                <div class="absolute bottom-3 left-3 bg-obsidian-900/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-gold-500/20 text-xs text-slate-300 flex items-center space-x-2">
+                                    <i class="fa-solid fa-gear text-gold-400 animate-[spin_10s_linear_infinite]"></i>
+                                    <span>Calibre ÉL-890 Automático</span>
+                                </div>
+                            </div>
+
+                            <!-- Card Details -->
+                            <div class="mt-6 space-y-3">
+                                <div class="flex justify-between items-baseline">
+                                    <h3 class="font-serif text-2xl text-white font-medium">Élan Royal Noir</h3>
+                                    <span class="font-luxury text-gold-400 text-xl font-bold">$7,450 USD</span>
+                                </div>
+                                <p class="text-xs text-slate-400 line-clamp-2">
+                                    Caja de titanio cepillado grado 5, bisel cerámico y cristal de zafiro con doble tratamiento antirreflejante.
+                                </p>
+                                
+                                <div class="pt-2 flex items-center justify-between">
+                                    <button onclick="openQuickView(0)" class="text-xs text-slate-300 hover:text-gold-400 underline underline-offset-4 font-medium transition-colors">
+                                        Ficha técnica completa &rarr;
+                                    </button>
+                                    <button onclick="addToCart(0)" class="px-4 py-2 bg-gold-500/20 hover:bg-gold-500 text-gold-300 hover:text-obsidian-950 border border-gold-500/40 rounded text-xs font-bold transition-all duration-200">
+                                        Añadir al Carrito
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Floating badge decorative -->
+                            <div class="absolute -top-3 -right-3 bg-obsidian-900 border border-gold-500 px-3 py-1 rounded-full text-[10px] font-bold text-gold-400 shadow-lg hidden sm:block">
+                                <i class="fa-solid fa-bolt mr-1"></i> Stock Limitado: 7 uds.
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- METRICS & TRUST BANNER                     -->
+        <!-- ========================================== -->
+        <section class="bg-obsidian-900 border-y border-gold-500/10 py-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-800">
+                    <div class="pt-4 md:pt-0">
+                        <i class="fa-solid fa-shield-halved text-2xl text-gold-400 mb-2"></i>
+                        <h4 class="font-luxury text-sm font-semibold text-white uppercase tracking-wider">Garantía Blindada</h4>
+                        <p class="text-xs text-slate-400 mt-1">Certificado criptográfico de autenticidad</p>
+                    </div>
+                    <div class="pt-4 md:pt-0">
+                        <i class="fa-solid fa-plane-lock text-2xl text-gold-400 mb-2"></i>
+                        <h4 class="font-luxury text-sm font-semibold text-white uppercase tracking-wider">Envío Asegurado</h4>
+                        <p class="text-xs text-slate-400 mt-1">Custodia de alta seguridad puerta a puerta</p>
+                    </div>
+                    <div class="pt-4 md:pt-0">
+                        <i class="fa-solid fa-network-wired text-2xl text-gold-400 mb-2"></i>
+                        <h4 class="font-luxury text-sm font-semibold text-white uppercase tracking-wider">Stock Sincronizado</h4>
+                        <p class="text-xs text-slate-400 mt-1">Control transaccional ACID en inventario</p>
+                    </div>
+                    <div class="pt-4 md:pt-0">
+                        <i class="fa-solid fa-handshake-angle text-2xl text-gold-400 mb-2"></i>
+                        <h4 class="font-luxury text-sm font-semibold text-white uppercase tracking-wider">Concierge 24/7</h4>
+                        <p class="text-xs text-slate-400 mt-1">Asesoría personalizada por maestros relojeros</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 2. COLECCIONES DESTACADAS                  -->
+        <!-- ========================================== -->
+        <section id="colecciones" class="py-24 relative bg-obsidian-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-bold tracking-[0.25em] text-gold-400 uppercase">
+                        Catálogo Curado 2026
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-5xl text-white font-normal">
+                        Colecciones Destacadas
+                    </h2>
+                    <div class="w-16 h-0.5 bg-gold-500 mx-auto mt-4"></div>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Cada ejemplar encarna la devoción por la precisión micrométrica y el diseño atemporal. Explora nuestras líneas creadas para ocasiones trascendentales.
+                    </p>
+
+                    <!-- Category Filter Buttons -->
+                    <div class="flex flex-wrap items-center justify-center gap-2 pt-6">
+                        <button onclick="filterCollection('all')" class="filter-btn active px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded border border-gold-500 bg-gold-500 text-obsidian-950 transition-all">
+                            Todas las Piezas
+                        </button>
+                        <button onclick="filterCollection('clasicos')" class="filter-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded border border-slate-800 bg-obsidian-900 text-slate-300 hover:border-gold-500/50 hover:text-gold-400 transition-all">
+                            Clásicos & Tradición
+                        </button>
+                        <button onclick="filterCollection('deportivos')" class="filter-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded border border-slate-800 bg-obsidian-900 text-slate-300 hover:border-gold-500/50 hover:text-gold-400 transition-all">
+                            Deportivos & Diver
+                        </button>
+                        <button onclick="filterCollection('especiales')" class="filter-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider rounded border border-slate-800 bg-obsidian-900 text-slate-300 hover:border-gold-500/50 hover:text-gold-400 transition-all">
+                            Ediciones Especiales
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Products will be dynamically populated/augmented by JS with full details -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 3. SISTEMA E-COMMERCE / FLUJO DEL NEGOCIO  -->
+        <!-- ========================================== -->
+        <section id="sistema" class="py-24 bg-gradient-to-b from-obsidian-900 via-obsidian-950 to-obsidian-900 border-t border-gold-500/10 relative overflow-hidden">
+            <!-- Background engineering grid pattern -->
+            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-gold-500/10 text-gold-400 border border-gold-500/30 text-xs font-mono">
+                        <i class="fa-solid fa-code-branch mr-1"></i> ARQUITECTURA DE SOFTWARE &bull; LAB 8
+                    </div>
+                    <h2 class="font-serif text-3xl sm:text-5xl text-white font-normal">
+                        Flujo del Negocio & Sistema E-commerce
+                    </h2>
+                    <div class="w-16 h-0.5 bg-gold-500 mx-auto"></div>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Implementación integral de los pilares de software de la plataforma <span class="text-gold-400 font-semibold">Élan Watches</span>. Trazabilidad rigurosa desde la exploración del catálogo hasta la entrega personalizada.
+                    </p>
+                </div>
+
+                <!-- 6 Pillars Flow Diagram -->
+                <div class="relative">
+                    
+                    <!-- Decorative Connection Line (Desktop) -->
+                    <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold-500/40 to-transparent -translate-y-8 z-0"></div>
+
+                    <!-- Flow Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+                        
+                        <!-- Pilar 1 -->
+                        <div class="glass-panel glass-panel-hover rounded-xl p-6 transition-all duration-300 relative group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="font-mono text-xs font-bold text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded border border-gold-500/20">
+                                    01. CATÁLOGO
+                                </span>
+                                <div class="w-10 h-10 rounded-lg bg-obsidian-850 flex items-center justify-center text-gold-400 border border-slate-700 group-hover:border-gold-500 transition-colors">
+                                    <i class="fa-solid fa-table-cells-large text-lg"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-luxury text-lg text-white font-semibold mb-2">Exploración & Catálogo</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                Indexación en tiempo real con filtrado faceteado por complicación, material y calibre. Consultas optimizadas con paginación y caché en capas.
+                            </p>
+                            <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-500 flex items-center justify-between">
+                                <span>Componente: <strong class="text-slate-300 font-mono">CatalogView</strong></span>
+                                <span class="text-emerald-400 font-mono">Status: Activo</span>
+                            </div>
+                        </div>
+
+                        <!-- Pilar 2 -->
+                        <div class="glass-panel glass-panel-hover rounded-xl p-6 transition-all duration-300 relative group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="font-mono text-xs font-bold text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded border border-gold-500/20">
+                                    02. STOCK
+                                </span>
+                                <div class="w-10 h-10 rounded-lg bg-obsidian-850 flex items-center justify-center text-gold-400 border border-slate-700 group-hover:border-gold-500 transition-colors">
+                                    <i class="fa-solid fa-boxes-stacked text-lg"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-luxury text-lg text-white font-semibold mb-2">Control de Stock Real</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                Bloqueo atómico preventivo por SKU para evitar colisiones o sobreventas en piezas limitadas. Alertas de umbral mínimo de inventario.
+                            </p>
+                            <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-500 flex items-center justify-between">
+                                <span>Componente: <strong class="text-slate-300 font-mono">InventoryManager</strong></span>
+                                <span class="text-emerald-400 font-mono">Status: Sincronizado</span>
+                            </div>
+                        </div>
+
+                        <!-- Pilar 3 -->
+                        <div class="glass-panel glass-panel-hover rounded-xl p-6 transition-all duration-300 relative group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="font-mono text-xs font-bold text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded border border-gold-500/20">
+                                    03. CARRITO
+                                </span>
+                                <div class="w-10 h-10 rounded-lg bg-obsidian-850 flex items-center justify-center text-gold-400 border border-slate-700 group-hover:border-gold-500 transition-colors">
+                                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-luxury text-lg text-white font-semibold mb-2">Carrito Reactivo</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                Persistencia en sesión con cálculo automático de divisas, impuestos y retención temporal de la orden durante 15 minutos de reserva.
+                            </p>
+                            <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-500 flex items-center justify-between">
+                                <span>Componente: <strong class="text-slate-300 font-mono">CartService</strong></span>
+                                <span class="text-emerald-400 font-mono">Status: Persistente</span>
+                            </div>
+                        </div>
+
+                        <!-- Pilar 4 -->
+                        <div class="glass-panel glass-panel-hover rounded-xl p-6 transition-all duration-300 relative group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="font-mono text-xs font-bold text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded border border-gold-500/20">
+                                    04. PAGO
+                                </span>
+                                <div class="w-10 h-10 rounded-lg bg-obsidian-850 flex items-center justify-center text-gold-400 border border-slate-700 group-hover:border-gold-500 transition-colors">
+                                    <i class="fa-solid fa-credit-card text-lg"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-luxury text-lg text-white font-semibold mb-2">Pago Simulado & Verificación</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                Pasarela con tokenización segura, simulación de validación 3D Secure, verificación de fondos y confirmación criptográfica de transacción.
+                            </p>
+                            <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-500 flex items-center justify-between">
+                                <span>Componente: <strong class="text-slate-300 font-mono">PaymentGateway</strong></span>
+                                <span class="text-amber-400 font-mono">Simulador PCI-DSS</span>
+                            </div>
+                        </div>
+
+                        <!-- Pilar 5 -->
+                        <div class="glass-panel glass-panel-hover rounded-xl p-6 transition-all duration-300 relative group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="font-mono text-xs font-bold text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded border border-gold-500/20">
+                                    05. PREPARACIÓN
+                                </span>
+                                <div class="w-10 h-10 rounded-lg bg-obsidian-850 flex items-center justify-center text-gold-400 border border-slate-700 group-hover:border-gold-500 transition-colors">
+                                    <i class="fa-solid fa-dolly text-lg"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-luxury text-lg text-white font-semibold mb-2">Preparación & WMS</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                Generación automática de orden de trabajo en almacén, calibración cronométrica previa al empaque y registro del número de serie individual.
+                            </p>
+                            <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-500 flex items-center justify-between">
+                                <span>Componente: <strong class="text-slate-300 font-mono">DispatchWarehouse</strong></span>
+                                <span class="text-emerald-400 font-mono">Status: Calibrado</span>
+                            </div>
+                        </div>
+
+                        <!-- Pilar 6 -->
+                        <div class="glass-panel glass-panel-hover rounded-xl p-6 transition-all duration-300 relative group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="font-mono text-xs font-bold text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded border border-gold-500/20">
+                                    06. DISTRIBUCIÓN
+                                </span>
+                                <div class="w-10 h-10 rounded-lg bg-obsidian-850 flex items-center justify-center text-gold-400 border border-slate-700 group-hover:border-gold-500 transition-colors">
+                                    <i class="fa-solid fa-truck-fast text-lg"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-luxury text-lg text-white font-semibold mb-2">Distribución & Entrega</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                Generación de tracking satelital encriptado, firma biométrica contra entrega y activación automática de la póliza de garantía digital.
+                            </p>
+                            <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-500 flex items-center justify-between">
+                                <span>Componente: <strong class="text-slate-300 font-mono">TrackingLogistics</strong></span>
+                                <span class="text-cyan-400 font-mono">Status: En Ruta</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Interactive Flow Simulator CTA Bar -->
+                <div class="mt-16 bg-obsidian-850 border border-gold-500/30 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+                    <div class="space-y-2 text-center md:text-left">
+                        <div class="text-xs uppercase tracking-widest text-gold-400 font-bold flex items-center justify-center md:justify-start">
+                            <i class="fa-solid fa-play-circle mr-2 text-sm"></i> Demostración Interactiva
+                        </div>
+                        <h4 class="font-serif text-xl sm:text-2xl text-white">¿Deseas probar la simulación completa de compra?</h4>
+                        <p class="text-xs text-slate-400 max-w-xl">
+                            Agrega cualquier modelo al carrito y haz clic en "Simular Compra y Flujo" para ver en tiempo real cómo los 6 estados de negocio procesan tu orden de manera secuencial.
+                        </p>
+                    </div>
+                    <button onclick="triggerSimulatedFlow()" class="px-6 py-3.5 bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 text-obsidian-950 font-bold text-xs uppercase tracking-wider rounded shadow-gold-glow transition-all whitespace-nowrap">
+                        <i class="fa-solid fa-rocket mr-2"></i> Ejecutar Simulador
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 4. CARACTERÍSTICAS & VALOR DE MARCA        -->
+        <!-- ========================================== -->
+        <section id="caracteristicas" class="py-24 bg-obsidian-950 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-bold tracking-[0.25em] text-gold-400 uppercase">
+                        Precisión &bull; Innovación &bull; Confianza
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-5xl text-white font-normal">
+                        Características de Excelencia
+                    </h2>
+                    <div class="w-16 h-0.5 bg-gold-500 mx-auto"></div>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Fusión entre la alta tradición relojera y estándares de desarrollo de software modernos: reactividad, seguridad y rendimiento visual de alto impacto.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Card 1 -->
+                    <div class="p-6 rounded-xl bg-obsidian-900 border border-slate-800 hover:border-gold-500/40 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-obsidian-950 transition-colors">
+                            <i class="fa-solid fa-stopwatch"></i>
+                        </div>
+                        <h3 class="font-luxury text-base text-white font-semibold mb-2">Movimiento Certificado</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Mecanismos automáticos con desviación menor a ±2 seg/día, testeo en 5 posiciones y 3 rangos térmicos.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="p-6 rounded-xl bg-obsidian-900 border border-slate-800 hover:border-gold-500/40 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-obsidian-950 transition-colors">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <h3 class="font-luxury text-base text-white font-semibold mb-2">Materiales Nobles</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Acero 904L antimagnético, titanio de grado aeroespacial, biseles de cerámica de circonio y zafiro irrayable.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="p-6 rounded-xl bg-obsidian-900 border border-slate-800 hover:border-gold-500/40 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-obsidian-950 transition-colors">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <h3 class="font-luxury text-base text-white font-semibold mb-2">Seguridad Transaccional</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Cifrado de punta a punta, arquitectura estática desacoplada y protección contra ataques DDoS y CSRF.
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="p-6 rounded-xl bg-obsidian-900 border border-slate-800 hover:border-gold-500/40 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-lg bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl mb-4 group-hover:bg-gold-500 group-hover:text-obsidian-950 transition-colors">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3 class="font-luxury text-base text-white font-semibold mb-2">UI/UX Ultrafluida</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Diseño 100% responsivo para cualquier dispositivo, tipografía balanceada y tiempos de carga instantáneos en Render.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 5. SECCIÓN SOBRE NOSOTROS                  -->
+        <!-- ========================================== -->
+        <section id="nosotros" class="py-24 bg-obsidian-900 border-t border-slate-800 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left: High quality craft visual -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl">
+                            <img 
+                                src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1000&q=80" 
+                                alt="Atelier de Relojería y Software Élan" 
+                                class="w-full h-[450px] object-cover"
+                                loading="lazy"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-obsidian-950/20 to-transparent"></div>
+                            
+                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-obsidian-900/90 backdrop-blur-md border border-gold-500/30">
+                                <div class="text-xs font-luxury font-bold text-gold-400">MANIFESTO ÉLAN</div>
+                                <div class="text-xs text-slate-300 italic mt-1">
+                                    "No medimos solamente las horas transcurridas; custodiamos los instantes que definen tu legado."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Story & Academic Vision -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="text-xs font-bold tracking-[0.25em] text-gold-400 uppercase">
+                            Nuestra Identidad & Propuesta de Valor
+                        </span>
+                        <h2 class="font-serif text-3xl sm:text-4xl text-white font-normal leading-tight">
+                            Pasión por el detalle mecánico, rigor en la arquitectura digital
+                        </h2>
+                        <div class="w-16 h-0.5 bg-gold-500"></div>
+
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            <strong class="text-gold-400 font-semibold">Élan Watches</strong> nació como una iniciativa académica de vanguardia en la cátedra de <strong>Ingeniería de Software</strong>, con el objetivo de demostrar cómo los patrones de diseño orientados a objetos, la arquitectura limpia y los estándares de experiencia de usuario (UX/UI) pueden aplicarse al mercado de comercio electrónico de ultra-lujo.
+                        </p>
+
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Entendemos que comprar un reloj de alta gama trasciende una simple transacción comercial: es un pacto de confianza. Por ello, nuestra plataforma integra no solo una estética sobria y distinguida, sino también mecanismos de coherencia en datos, verificación simulada de pagos y auditoría permanente de inventario.
+                        </p>
+
+                        <!-- Project Specifications Pills -->
+                        <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-lg bg-obsidian-850 border border-slate-800 flex items-start space-x-3">
+                                <i class="fa-solid fa-code text-gold-400 text-base mt-1"></i>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Stack Tecnológico</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">HTML5 Semántico, Tailwind CSS, JavaScript Vanilla Modular y Despliegue Estático en Render.</p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-lg bg-obsidian-850 border border-slate-800 flex items-start space-x-3">
+                                <i class="fa-solid fa-graduation-cap text-gold-400 text-base mt-1"></i>
+                                <div>
+                                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Materia & Propósito</h4>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Ingeniería de Software &bull; Laboratorio 8: Diseño y Despliegue de Aplicaciones Web Modernas.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- 6. CONTACTO & CONCIERGE                    -->
+        <!-- ========================================== -->
+        <section id="contacto" class="py-24 bg-obsidian-950 relative border-t border-slate-850">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-bold tracking-[0.25em] text-gold-400 uppercase">
+                        Atención Personalizada
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-5xl text-white font-normal">
+                        Contacto & Concierge Privado
+                    </h2>
+                    <div class="w-16 h-0.5 bg-gold-500 mx-auto"></div>
+                    <p class="text-slate-400 text-sm">
+                        ¿Tienes inquietudes sobre algún modelo o deseas una demostración técnica de la plataforma? Déjanos un mensaje.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Contact Information Cards -->
+                    <div class="lg:col-span-5 space-y-6">
+                        
+                        <div class="p-6 rounded-xl bg-obsidian-900 border border-slate-800 space-y-4">
+                            <h3 class="font-luxury text-base text-white font-semibold">Atelier & Sede Central</h3>
+                            
+                            <div class="space-y-3 text-xs text-slate-300">
+                                <div class="flex items-start space-x-3">
+                                    <i class="fa-solid fa-location-dot text-gold-400 mt-1"></i>
+                                    <span>Boulevard de l'Horlogerie 144, Ginebra &bull; Campus de Ingeniería</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-envelope text-gold-400"></i>
+                                    <span>contacto@elanwatches-project.com</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fa-solid fa-phone text-gold-400"></i>
+                                    <span>+41 (22) 890 2026 / +1 (800) 352-ELAN</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Academic Note -->
+                        <div class="p-6 rounded-xl bg-gold-500/5 border border-gold-500/20 space-y-2">
+                            <div class="flex items-center space-x-2 text-gold-400 text-xs font-bold">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>Aviso para Evaluadores Académicos</span>
+                            </div>
+                            <p class="text-[11px] text-slate-400 leading-relaxed">
+                                Este formulario cuenta con validación interactiva del lado del cliente. Cualquier envío se procesará en modo de demostración controlada sin almacenar datos sensibles.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7">
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="bg-obsidian-900 border border-gold-500/20 rounded-2xl p-8 space-y-6 shadow-xl">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Nombre Completo *</label>
+                                    <input type="text" id="name" required placeholder="p. ej. Alejandro Morales" class="w-full px-4 py-3 bg-obsidian-950 border border-slate-700 rounded text-slate-200 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition-colors">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Correo Electrónico *</label>
+                                    <input type="email" id="email" required placeholder="tu.correo@ejemplo.com" class="w-full px-4 py-3 bg-obsidian-950 border border-slate-700 rounded text-slate-200 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition-colors">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="interest" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Motivo de Contacto</label>
+                                    <select id="interest" class="w-full px-4 py-3 bg-obsidian-950 border border-slate-700 rounded text-slate-200 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition-colors">
+                                        <option value="adquisicion">Asesoría de Compra / Adquisición</option>
+                                        <option value="tecnico">Consulta Técnica del Sistema E-commerce</option>
+                                        <option value="academico">Revisión de Proyecto Académico</option>
+                                        <option value="otro">Otro Asunto</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Teléfono (Opcional)</label>
+                                    <input type="tel" id="phone" placeholder="+54 9 11 1234-5678" class="w-full px-4 py-3 bg-obsidian-950 border border-slate-700 rounded text-slate-200 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Mensaje o Requerimiento *</label>
+                                <textarea id="message" rows="4" required placeholder="Escribe aquí tu consulta o comentario sobre la plataforma..." class="w-full px-4 py-3 bg-obsidian-950 border border-slate-700 rounded text-slate-200 text-sm focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" id="submit-contact-btn" class="w-full py-4 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-obsidian-950 font-bold text-xs tracking-widest uppercase rounded shadow-gold-glow transition-all duration-300">
+                                <i class="fa-solid fa-paper-plane mr-2"></i> Enviar Consulta al Concierge
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                     -->
+    <!-- ========================================== -->
+    <footer class="bg-obsidian-950 border-t border-slate-800 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+                
+                <!-- Col 1 & 2: Brand & Academic Details -->
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full border border-gold-500/50 flex items-center justify-center bg-obsidian-900">
+                            <span class="font-luxury text-gold-400 text-base font-bold">É</span>
+                        </div>
+                        <span class="font-luxury tracking-[0.25em] text-white text-base font-semibold uppercase">
+                            ÉLAN WATCHES
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Plataforma de alta relojería concebida como proyecto insignia de la asignatura Ingeniería de Software. Excelencia técnica, patrones de diseño y sofisticación estética.
+                    </p>
+                    <div class="pt-2 text-[11px] text-slate-500">
+                        <span>Despliegue: <strong>Render Static Site</strong></span> &bull; 
+                        <span>Versión: <strong class="text-gold-400">1.0.0-PROD</strong></span>
+                    </div>
+                </div>
+
+                <!-- Col 3: Navegación Rápida -->
+                <div class="space-y-3">
+                    <h4 class="font-luxury text-white text-xs font-bold uppercase tracking-wider">Navegación</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-gold-400 transition-colors">Inicio</a></li>
+                        <li><a href="#colecciones" class="hover:text-gold-400 transition-colors">Colecciones</a></li>
+                        <li><a href="#caracteristicas" class="hover:text-gold-400 transition-colors">Características</a></li>
+                        <li><a href="#sistema" class="hover:text-gold-400 transition-colors">Sistema E-commerce</a></li>
+                        <li><a href="#nosotros" class="hover:text-gold-400 transition-colors">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Colecciones -->
+                <div class="space-y-3">
+                    <h4 class="font-luxury text-white text-xs font-bold uppercase tracking-wider">Líneas de Relojes</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#colecciones" onclick="filterCollection('clasicos')" class="hover:text-gold-400 transition-colors">Clásicos Suizos</a></li>
+                        <li><a href="#colecciones" onclick="filterCollection('deportivos')" class="hover:text-gold-400 transition-colors">Cronógrafos Deportivos</a></li>
+                        <li><a href="#colecciones" onclick="filterCollection('especiales')" class="hover:text-gold-400 transition-colors">Complicación Tourbillon</a></li>
+                        <li><a href="#colecciones" onclick="filterCollection('clasicos')" class="hover:text-gold-400 transition-colors">Ediciones en Oro 18K</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 5: Ingeniería de Software -->
+                <div class="space-y-3">
+                    <h4 class="font-luxury text-white text-xs font-bold uppercase tracking-wider">Ingeniería</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center space-x-1.5">
+                            <i class="fa-solid fa-check text-gold-400 text-[10px]"></i>
+                            <span>HTML5 + Tailwind CSS</span>
+                        </li>
+                        <li class="flex items-center space-x-1.5">
+                            <i class="fa-solid fa-check text-gold-400 text-[10px]"></i>
+                            <span>JavaScript Vanilla</span>
+                        </li>
+                        <li class="flex items-center space-x-1.5">
+                            <i class="fa-solid fa-check text-gold-400 text-[10px]"></i>
+                            <span>Trazabilidad 6 Estados</span>
+                        </li>
+                        <li class="flex items-center space-x-1.5">
+                            <i class="fa-solid fa-check text-gold-400 text-[10px]"></i>
+                            <span>Zero Dependencias npm</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Academic Disclaimer -->
+            <div class="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+                <p>
+                    &copy; 2026 <span class="text-slate-300">Élan Watches</span>. Proyecto Académico de Ingeniería de Software. Todos los derechos reservados.
+                </p>
+                <div class="flex items-center space-x-6">
+                    <a href="#inicio" class="hover:text-gold-400 transition-colors">Términos de Simulación</a>
+                    <a href="#inicio" class="hover:text-gold-400 transition-colors">Privacidad de Datos</a>
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-2 rounded bg-obsidian-850 hover:bg-gold-500 hover:text-obsidian-950 text-slate-300 transition-all" title="Volver al inicio">
+                        <i class="fa-solid fa-chevron-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- SLIDE-OVER: CARRITO DE COMPRAS             -->
+    <!-- ========================================== -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-all duration-500 opacity-0">
+        <!-- Backdrop -->
+        <div id="cart-backdrop" class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
+
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div id="cart-panel" class="w-screen max-w-md bg-obsidian-900 border-l border-gold-500/20 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto">
+                
+                <!-- Drawer Header -->
+                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid fa-bag-shopping text-gold-400 text-lg"></i>
+                        <h3 class="font-luxury text-base text-white font-semibold">Tu Selección Privada</h3>
+                    </div>
+                    <button onclick="closeCartDrawer()" class="text-slate-400 hover:text-white p-2">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Drawer Items List -->
+                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Dynamic items rendered via JS -->
+                </div>
+
+                <!-- Drawer Footer & Checkout Simulation -->
+                <div class="p-6 border-t border-slate-800 bg-obsidian-950 space-y-4">
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="text-slate-400">Subtotal Estimado:</span>
+                        <span id="cart-total-price" class="font-luxury text-lg font-bold text-gold-400">$0 USD</span>
+                    </div>
+                    <p class="text-[10px] text-slate-500 italic">
+                        * Precios incluyen seguro de transporte blindado y calibración previa de manufactura.
+                    </p>
+                    <button onclick="triggerSimulatedFlow()" class="w-full py-3.5 bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 text-obsidian-950 font-bold text-xs uppercase tracking-wider rounded shadow-gold-glow transition-all">
+                        <i class="fa-solid fa-shield-halved mr-2"></i> Procesar Simulación de Pedido
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL: VISTA RÁPIDA DE PRODUCTO            -->
+    <!-- ========================================== -->
+    <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="relative w-full max-w-3xl bg-obsidian-900 border border-gold-500/40 rounded-2xl shadow-card-dark overflow-hidden transform transition-all">
+            
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-obsidian-950/80 text-slate-300 hover:text-white hover:bg-gold-500 hover:text-obsidian-950 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark text-base"></i>
+            </button>
+
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <div class="bg-obsidian-950 relative h-64 md:h-full min-h-[300px]">
+                    <img id="modal-img" src="" alt="Reloj Élan" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian-950 via-transparent to-transparent"></div>
+                </div>
+
+                <div class="p-6 md:p-8 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <span id="modal-category" class="text-[10px] font-bold uppercase tracking-widest text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded border border-gold-500/20"></span>
+                            <span id="modal-stock" class="text-[10px] text-emerald-400 font-mono"></span>
+                        </div>
+                        <h3 id="modal-title" class="font-serif text-2xl text-white font-medium mt-3"></h3>
+                        <p id="modal-price" class="font-luxury text-xl text-gold-400 font-bold mt-1"></p>
+                        
+                        <p id="modal-desc" class="text-xs text-slate-300 mt-4 leading-relaxed"></p>
+
+                        <!-- Technical Specs Matrix -->
+                        <div class="mt-4 p-3 bg-obsidian-950 rounded-lg border border-slate-800 text-xs space-y-2">
+                            <div class="flex justify-between text-slate-400">
+                                <span>Caja & Diámetro:</span>
+                                <span id="modal-spec-case" class="text-slate-200 font-medium"></span>
+                            </div>
+                            <div class="flex justify-between text-slate-400">
+                                <span>Calibre / Movimiento:</span>
+                                <span id="modal-spec-caliber" class="text-slate-200 font-medium"></span>
+                            </div>
+                            <div class="flex justify-between text-slate-400">
+                                <span>Hermeticidad:</span>
+                                <span id="modal-spec-water" class="text-slate-200 font-medium"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 flex gap-3">
+                        <button id="modal-add-btn" class="flex-1 py-3 bg-gold-500 hover:bg-gold-400 text-obsidian-950 font-bold text-xs uppercase tracking-wider rounded shadow-gold-glow transition-all">
+                            Añadir a mi Selección
+                        </button>
+                        <button onclick="closeQuickView()" class="px-4 py-3 bg-obsidian-800 hover:bg-slate-700 text-slate-300 text-xs uppercase font-semibold rounded transition-colors">
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL: SIMULADOR DE FLUJO DE COMPRA        -->
+    <!-- ========================================== -->
+    <div id="flow-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="relative w-full max-w-2xl bg-obsidian-900 border border-gold-500/50 rounded-2xl shadow-card-dark p-6 sm:p-8 space-y-6">
+            
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gold-500/20 border border-gold-500 flex items-center justify-center text-gold-400">
+                        <i class="fa-solid fa-gears text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-luxury text-lg text-white font-bold">Simulador de Transacción & Flujo</h3>
+                        <p class="text-xs text-slate-400">Verificando los 6 pilares de software de Élan Watches</p>
+                    </div>
+                </div>
+                <button onclick="closeFlowModal()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="space-y-2">
+                <div class="flex justify-between text-xs font-mono">
+                    <span id="flow-step-label" class="text-gold-400 font-semibold">Pilar 1/6: Catálogo &bull; Sincronizando datos</span>
+                    <span id="flow-percentage" class="text-slate-400">16%</span>
+                </div>
+                <div class="w-full bg-obsidian-950 h-2 rounded-full overflow-hidden border border-slate-800">
+                    <div id="flow-progress-bar" class="h-full bg-gradient-to-r from-gold-500 to-amber-300 w-1/6 transition-all duration-700"></div>
+                </div>
+            </div>
+
+            <!-- Interactive Terminal / Step Monitor -->
+            <div id="flow-logs" class="bg-obsidian-950 rounded-xl p-4 font-mono text-xs text-slate-300 h-52 overflow-y-auto space-y-2 border border-slate-800">
+                <!-- Log entries will appear sequentially -->
+            </div>
+
+            <div class="flex justify-between items-center pt-2">
+                <span class="text-[11px] text-slate-500">
+                    <i class="fa-solid fa-terminal mr-1"></i> Simulación controlada sin impacto bancario
+                </span>
+                <button id="flow-done-btn" onclick="closeFlowModal()" class="hidden px-5 py-2 bg-emerald-500 hover:bg-emerald-400 text-obsidian-950 font-bold text-xs uppercase tracking-wider rounded transition-colors">
+                    Finalizar Demostración
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- NOTIFICACIÓN TOAST FLOTANTE                -->
+    <!-- ========================================== -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-obsidian-900 border border-gold-500/40 text-white px-5 py-3.5 rounded-lg shadow-2xl flex items-center space-x-3 pointer-events-none">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-gold-400 text-lg"></i>
+        <span id="toast-message" class="text-xs font-medium"></span>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT MODULAR Y DINÁMICO              -->
+    <!-- ========================================== -->
+    <script>
+        // Catálogo de Productos (Datos curados con imágenes reales de alta resolución de Unsplash)
+        const products = [
+            {
+                id: 0,
+                name: "Élan Royal Noir",
+                category: "especiales",
+                categoryLabel: "Edición Especial",
+                price: 7450,
+                stock: 7,
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80",
+                description: "Pieza insignia con caja de titanio grado 5 cepillado, bisel en cerámica negra y masa oscilante esqueleto en oro de 22k.",
+                specs: {
+                    case: "Titanio Grado 5 &bull; 42 mm",
+                    caliber: "ÉL-890 Automático (28,800 vph)",
+                    water: "100 metros / 10 ATM"
+                }
+            },
+            {
+                id: 1,
+                name: "Heritage Chronometer",
+                category: "clasicos",
+                categoryLabel: "Clásico Suizo",
+                price: 5200,
+                stock: 12,
+                image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80",
+                description: "Esfera opalina blanca con numerales romanos aplicados a mano, correa de cuero artesanal italiano y cristal zafiro abovedado.",
+                specs: {
+                    case: "Acero 316L Pulido &bull; 39 mm",
+                    caliber: "ÉL-310 Reserva de 48 Horas",
+                    water: "50 metros / 5 ATM"
+                }
+            },
+            {
+                id: 2,
+                name: "Vanguard Diver 300",
+                category: "deportivos",
+                categoryLabel: "Deportivo Submarino",
+                price: 4850,
+                stock: 9,
+                image: "https://images.unsplash.com/photo-1547996160-71dfa6309697?auto=format&fit=crop&w=800&q=80",
+                description: "Diseñado para inmersiones extremas con válvula automática de helio, índices en Super-LumiNova BGW9 y bisel cerámico unidireccional.",
+                specs: {
+                    case: "Acero 904L Satinado &bull; 43 mm",
+                    caliber: "ÉL-920 Rotor Bidireccional",
+                    water: "300 metros / 30 ATM"
+                }
+            },
+            {
+                id: 3,
+                name: "Tourbillon Nocturne",
+                category: "especiales",
+                categoryLabel: "Alta Complicación",
+                price: 13900,
+                stock: 3,
+                image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
+                description: "Complicación de tourbillon visible a las 6 en punto. Esqueleto finamente grabado a mano por maestros relojeros en Ginebra.",
+                specs: {
+                    case: "Oro Blanco 18K &bull; 41 mm",
+                    caliber: "ÉL-001 Tourbillon Mecánico Manual",
+                    water: "30 metros / 3 ATM"
+                }
+            },
+            {
+                id: 4,
+                name: "Grand Astral Chrono",
+                category: "deportivos",
+                categoryLabel: "Cronógrafo Deportivo",
+                price: 6100,
+                stock: 14,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+                description: "Cronógrafo de rueda de pilares con escala taquimétrica. Esfera azul petróleo con subesferas en plateado rayos de sol.",
+                specs: {
+                    case: "Acero & PVD Gris &bull; 42 mm",
+                    caliber: "ÉL-775 Cronógrafo Flyback",
+                    water: "100 metros / 10 ATM"
+                }
+            },
+            {
+                id: 5,
+                name: "Élan Imperial Aureum",
+                category: "clasicos",
+                categoryLabel: "Clásico en Oro",
+                price: 11500,
+                stock: 5,
+                image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80",
+                description: "Elegancia pura forjada en oro amarillo macizo de 18 kilates con brazalete integrado 'Jubilé' y cierre desplegable de seguridad.",
+                specs: {
+                    case: "Oro Amarillo 18K &bull; 40 mm",
+                    caliber: "ÉL-440 Automático Ultra-Slim",
+                    water: "50 metros / 5 ATM"
+                }
+            }
+        ];
+
+        // Estado del Carrito Reactivo
+        let cart = [];
+
+        // Inicializar renderizado al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts(products);
+            setupHeaderScroll();
+            setupMobileMenu();
+        });
+
+        // Formateador de moneda USD
+        function formatMoney(amount) {
+            return '$' + amount.toLocaleString('en-US') + ' USD';
+        }
+
+        // Renderizar Cuadrícula de Relojes
+        function renderProducts(items) {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-slate-500">
+                        <i class="fa-solid fa-clock-rotate-left text-3xl mb-3"></i>
+                        <p>No se encontraron piezas en esta categoría.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-obsidian-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-gold-500/50 transition-all duration-300 group flex flex-col shadow-card-dark";
+                
+                card.innerHTML = `
+                    <!-- Image Showcase -->
+                    <div class="relative overflow-hidden aspect-[4/3] bg-obsidian-950">
+                        <img 
+                            src="${product.image}" 
+                            alt="${product.name}" 
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-transparent"></div>
+                        
+                        <!-- Category Badge -->
+                        <span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-gold-400 bg-obsidian-950/80 backdrop-blur-sm border border-gold-500/30 px-2.5 py-1 rounded">
+                            ${product.categoryLabel}
+                        </span>
+
+                        <!-- Stock Badge -->
+                        <span class="absolute top-3 right-3 text-[10px] font-mono text-slate-300 bg-obsidian-950/80 px-2 py-0.5 rounded border border-white/5">
+                            <span class="w-1.5 h-1.5 rounded-full inline-block ${product.stock > 5 ? 'bg-emerald-400' : 'bg-amber-400'} mr-1"></span>
+                            ${product.stock} disponibles
+                        </span>
+
+                        <!-- Overlay Quick Actions -->
+                        <div class="absolute inset-0 bg-obsidian-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 backdrop-blur-[2px]">
+                            <button onclick="openQuickView(${product.id})" class="px-3.5 py-2 rounded bg-obsidian-900/90 hover:bg-gold-500 hover:text-obsidian-950 text-white text-xs font-semibold uppercase tracking-wider border border-gold-500/40 transition-colors shadow-lg">
+                                <i class="fa-solid fa-eye mr-1.5"></i> Vista Rápida
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Details -->
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-baseline justify-between">
+                                <h3 class="font-serif text-xl text-white font-medium group-hover:text-gold-400 transition-colors">
+                                    ${product.name}
+                                </h3>
+                                <span class="font-luxury text-gold-400 text-lg font-bold">
+                                    ${formatMoney(product.price)}
+                                </span>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed">
+                                ${product.description}
+                            </p>
+                        </div>
+
+                        <!-- Technical highlights & Action -->
+                        <div class="pt-4 border-t border-slate-800 space-y-3">
+                            <div class="text-[11px] text-slate-500 flex justify-between">
+                                <span><i class="fa-solid fa-ruler-combined text-gold-500/70 mr-1"></i> ${product.specs.case.split('&bull;')[1] || '42 mm'}</span>
+                                <span><i class="fa-solid fa-water text-gold-500/70 mr-1"></i> ${product.specs.water}</span>
+                            </div>
+
+                            <button onclick="addToCart(${product.id})" class="w-full py-2.5 bg-obsidian-850 hover:bg-gold-500 hover:text-obsidian-950 text-gold-300 font-bold text-xs uppercase tracking-wider rounded border border-gold-500/30 hover:border-gold-500 transition-all duration-200 flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-plus text-[10px]"></i>
+                                <span>Añadir a mi Selección</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtro de Colecciones
+        function filterCollection(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-gold-500', 'text-obsidian-950', 'border-gold-500');
+                btn.classList.add('bg-obsidian-900', 'text-slate-300', 'border-slate-800');
+            });
+
+            // Localizar el botón presionado
+            event?.target?.classList?.remove('bg-obsidian-900', 'text-slate-300', 'border-slate-800');
+            event?.target?.classList?.add('bg-gold-500', 'text-obsidian-950', 'border-gold-500');
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // Carrito de Compras: Añadir producto
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingIndex = cart.findIndex(item => item.id === productId);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`"${product.name}" añadido a tu selección privada.`);
+        }
+
+        // Carrito de Compras: Eliminar producto
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+            showToast("Pieza removida de tu selección.");
+        }
+
+        // Carrito de Compras: Actualizar Contadores e Interfaz
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // Badges
+            document.getElementById('cart-badge').textContent = totalCount;
+            document.getElementById('mobile-cart-badge').textContent = totalCount;
+            document.getElementById('cart-total-price').textContent = formatMoney(totalPrice);
+
+            // Renderizar items en drawer
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-64 flex flex-col items-center justify-center text-slate-500 text-center">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-slate-700"></i>
+                        <p class="text-sm font-medium">Tu selección está vacía</p>
+                        <p class="text-xs text-slate-600 mt-1">Explora nuestro catálogo para reservar una pieza.</p>
+                    </div>
+                `;
+            } else {
+                cart.forEach(item => {
+                    const itemRow = document.createElement('div');
+                    itemRow.className = "flex items-center space-x-4 p-3 bg-obsidian-950 rounded-xl border border-slate-800";
+                    itemRow.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg border border-slate-700">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-xs font-semibold text-white truncate">${item.name}</h4>
+                            <p class="text-xs text-gold-400 font-luxury font-bold mt-0.5">${formatMoney(item.price)}</p>
+                            <span class="text-[10px] text-slate-400">Cantidad: ${item.quantity}</span>
+                        </div>
+                        <button onclick="removeFromCart(${item.id})" class="text-slate-500 hover:text-rose-400 p-2 transition-colors" title="Eliminar">
+                            <i class="fa-solid fa-trash-can text-sm"></i>
+                        </button>
+                    `;
+                    container.appendChild(itemRow);
+                });
+            }
+        }
+
+        // Drawer Controls
+        const cartDrawer = document.getElementById('cart-drawer');
+        const cartPanel = document.getElementById('cart-panel');
+        const cartBackdrop = document.getElementById('cart-backdrop');
+
+        function openCartDrawer() {
+            cartDrawer.classList.remove('pointer-events-none', 'opacity-0');
+            cartDrawer.classList.add('pointer-events-auto', 'opacity-100');
+            cartBackdrop.classList.remove('opacity-0');
+            cartBackdrop.classList.add('opacity-100');
+            cartPanel.classList.remove('translate-x-full');
+            cartPanel.classList.add('translate-x-0');
+        }
+
+        function closeCartDrawer() {
+            cartBackdrop.classList.remove('opacity-100');
+            cartBackdrop.classList.add('opacity-0');
+            cartPanel.classList.remove('translate-x-0');
+            cartPanel.classList.add('translate-x-full');
+            setTimeout(() => {
+                cartDrawer.classList.remove('pointer-events-auto', 'opacity-100');
+                cartDrawer.classList.add('pointer-events-none', 'opacity-0');
+            }, 300);
+        }
+
+        document.getElementById('cart-toggle-btn')?.addEventListener('click', openCartDrawer);
+        document.getElementById('mobile-cart-btn')?.addEventListener('click', openCartDrawer);
+        cartBackdrop?.addEventListener('click', closeCartDrawer);
+
+        // Quick View Modal
+        function openQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            document.getElementById('modal-img').src = product.image;
+            document.getElementById('modal-img').alt = product.name;
+            document.getElementById('modal-category').textContent = product.categoryLabel;
+            document.getElementById('modal-stock').textContent = `Stock: ${product.stock} unidades`;
+            document.getElementById('modal-title').textContent = product.name;
+            document.getElementById('modal-price').textContent = formatMoney(product.price);
+            document.getElementById('modal-desc').textContent = product.description;
+            document.getElementById('modal-spec-case').innerHTML = product.specs.case;
+            document.getElementById('modal-spec-caliber').innerHTML = product.specs.caliber;
+            document.getElementById('modal-spec-water').textContent = product.specs.water;
+
+            const addBtn = document.getElementById('modal-add-btn');
+            addBtn.onclick = () => {
+                addToCart(product.id);
+                closeQuickView();
+            };
+
+            const modal = document.getElementById('quickview-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quickview-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Simulador de los 6 Pilares del Flujo de Software
+        function triggerSimulatedFlow() {
+            closeCartDrawer();
+            const modal = document.getElementById('flow-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            const logs = document.getElementById('flow-logs');
+            const stepLabel = document.getElementById('flow-step-label');
+            const percentage = document.getElementById('flow-percentage');
+            const progressBar = document.getElementById('flow-progress-bar');
+            const doneBtn = document.getElementById('flow-done-btn');
+
+            logs.innerHTML = '';
+            doneBtn.classList.add('hidden');
+
+            const steps = [
+                {
+                    step: 1,
+                    title: "Catálogo &bull; Indexación",
+                    progress: "16%",
+                    widthClass: "w-1/6",
+                    log: "[CATÁLOGO] Consulta SQL validada: SKU seleccionado con caché en memoria. Ficha técnica verificada."
+                },
+                {
+                    step: 2,
+                    title: "Control de Stock &bull; Bloqueo Atómico",
+                    progress: "33%",
+                    widthClass: "w-2/6",
+                    log: "[INVENTARIO] Bloqueo de 1 unidad en almacén central. Transacción ACID: Saldo restante actualizado sin colisiones."
+                },
+                {
+                    step: 3,
+                    title: "Carrito Reactivo &bull; Sesión",
+                    progress: "50%",
+                    widthClass: "w-3/6",
+                    log: "[CARRITO] Reserva de sesión activa. Tiempo de retención asignado: 15:00 min. Impuestos y aranceles calculados."
+                },
+                {
+                    step: 4,
+                    title: "Pasarela de Pago &bull; Verificación Cifrada",
+                    progress: "66%",
+                    widthClass: "w-4/6",
+                    log: "[PAGO SIMULADO] Handshake TLS 1.3 establecido. Token bancario autorizado con éxito mediante protocolo 3D Secure."
+                },
+                {
+                    step: 5,
+                    title: "Preparación &bull; Inspección en Atelier",
+                    progress: "83%",
+                    widthClass: "w-5/6",
+                    log: "[WMS / ALMACÉN] Orden #ELN-2026-9812 enviada a preparación. Número de serie calibrado en cronocomparador suizo."
+                },
+                {
+                    step: 6,
+                    title: "Distribución &bull; Ruta Asegurada",
+                    progress: "100%",
+                    widthClass: "w-full",
+                    log: "[LOGÍSTICA] Guía de envío satelital generada: TRK-ELAN-99218. Custodia blindada en camino a destino."
+                }
+            ];
+
+            let index = 0;
+            function runStep() {
+                if (index < steps.length) {
+                    const current = steps[index];
+                    stepLabel.innerHTML = `Pilar ${current.step}/6: ${current.title}`;
+                    percentage.textContent = current.progress;
+                    progressBar.style.width = current.progress;
+
+                    const p = document.createElement('div');
+                    p.className = "flex items-start space-x-2";
+                    p.innerHTML = `
+                        <span class="text-gold-400">[${new Date().toLocaleTimeString()}]</span>
+                        <span class="text-slate-200">${current.log}</span>
+                    `;
+                    logs.appendChild(p);
+                    logs.scrollTop = logs.scrollHeight;
+
+                    index++;
+                    setTimeout(runStep, 950);
+                } else {
+                    stepLabel.innerHTML = `<span class="text-emerald-400 font-bold"><i class="fa-solid fa-circle-check mr-1"></i> Flujo Completado con Éxito</span>`;
+                    doneBtn.classList.remove('hidden');
+                    showToast("Simulación de los 6 pilares completada exitosamente.");
+                }
+            }
+
+            runStep();
+        }
+
+        function closeFlowModal() {
+            const modal = document.getElementById('flow-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Formulario de Contacto Interactivo
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const btn = document.getElementById('submit-contact-btn');
+            const originalHTML = btn.innerHTML;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Transmitiendo al Concierge...`;
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalHTML;
+                document.getElementById('contact-form').reset();
+                showToast("Mensaje recibido. El Concierge de Élan Watches responderá a la brevedad.");
+            }, 1200);
+        }
+
+        // Notificación Toast
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            
+            clearTimeout(toastTimeout);
+            toastMsg.textContent = message;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+
+        // Animación de Header al hacer scroll
+        function setupHeaderScroll() {
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('bg-obsidian-950/95', 'shadow-lg', 'border-gold-500/20');
+                    header.classList.remove('bg-obsidian-950/80', 'border-white/5');
+                } else {
+                    header.classList.remove('bg-obsidian-950/95', 'shadow-lg', 'border-gold-500/20');
+                    header.classList.add('bg-obsidian-950/80', 'border-white/5');
+                }
+            });
+        }
+
+        // Menú Móvil
+        function setupMobileMenu() {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+
+            menuBtn?.addEventListener('click', () => {
+                const isOpen = !menu.classList.contains('hidden');
+                if (isOpen) {
+                    menu.classList.add('hidden');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                } else {
+                    menu.classList.remove('hidden');
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            });
+
+            // Cerrar menú al hacer clic en enlaces móviles
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
